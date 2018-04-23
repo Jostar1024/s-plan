@@ -11,7 +11,11 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueCookie)
 
-Vue.prototype.$bus = new Vue()
+const EventBus = new Vue()
+Vue.prototype.$bus = EventBus
+Object.defineProperties(Vue.prototype, {
+  $bus: { get: () => EventBus }
+})
 
 /* eslint-disable no-new */
 new Vue({
