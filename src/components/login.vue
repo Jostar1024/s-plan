@@ -5,7 +5,7 @@
     </div>
     <el-form ref="form" :rules="loginRules" :model="form" label-width="80px">
       <el-form-item label="" prop="phoneNumber">
-        <el-input v-model="form.phoneNumber" placeholder="请输入登录手机号" ></el-input>
+        <el-input v-model="form.phoneNumber" placeholder="请输入手机号来注册" ></el-input>
       </el-form-item>
       <el-form-item label="" prop="password">
         <el-input type="password" v-model="form.password" placeholder="6-16位密码，区分大小写，不能使用空格" ></el-input>
