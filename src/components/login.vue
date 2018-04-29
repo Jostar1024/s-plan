@@ -20,6 +20,7 @@
 
 <script>
 import axios from 'axios'
+import { setUserInfo } from '../utils/userinfo'
 
 export default {
   data () {
@@ -44,8 +45,17 @@ export default {
       const res = JSON.parse(rawRes.data.substr(1))
       console.log(res)
       // 13011072992
+      /*
+        avatar:"http://yjhapi.agxx.club/avatar/default/8.png"
+        mobile:"13011072992"
+        nick_name: "测试"
+        sex:0
+        token:"45208f6d9e0d9990fe865065da2046ea"
+        user_id:"user8"
+       */
       if (res.status === 1) { // success
         this.$cookie.set('token', res.data.token, 30)
+        setUserInfo(res.data)
         this.$bus.$emit('userLogin', 'ok')
         this.$router.push('/')
       }
