@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { deleteUserInfo } from '../utils/userinfo'
 export default {
   data () {
     return {
@@ -29,6 +30,7 @@ export default {
     },
     logout () {
       this.$cookie.delete('token')
+      deleteUserInfo()
       this.handleUserLoginEvent()
       this.$router.push('/')
     },
