@@ -27,7 +27,7 @@ import { getUserInfo } from '../../utils/userinfo'
 export default {
   data () {
     return {
-      postsData: fetchPostsData()
+      postsData: []
     }
   },
   methods: {
@@ -42,6 +42,13 @@ export default {
       }
       return []
     }
+  },
+  mounted () {
+    console.log('mounted')
+    this.fetchPostsData().then((data) => {
+      this.postsData = data
+    })
+
   }
 }
 </script>
